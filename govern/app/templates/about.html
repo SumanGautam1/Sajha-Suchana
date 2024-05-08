@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Welcome section -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="english-title">WELCOME TO SAJHA SUCHANA!</p>
+        <h2 class="nepali-title">साझा सूचनामा हजूर लाई स्वागत छ !</h2>
+        <p>Sajha Sanjal is your one-stop shop for staying informed about government initiatives and programs.
+          We strive to provide easy access to official notices, keeping you updated on important matters.
+          Visit any government sites or read news as well as notices from the government all in one place!</p>
+        <button type="button" class="btn btn-danger learn-more">Learn More</button>
+      </div>
+      <div class="col-md-6 about-image">
+        <img src="{% static 'image/user-interface.jpg' %}" class="img-fluid user-interface" alt="using phone">
+      </div>
+    </div>
+  </div>
+  <img class="img-fluid bottom-image" src="{% static 'image/wave1.png' %}" alt="wave effect">
+
+{% endblock content %}
+

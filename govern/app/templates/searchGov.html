@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  
+  <div class="container news-categories">
+    <h1 style="font-weight: 600; color:white; border-bottom: 3px solid white; background-color: black">List Of Government Sites of Nepal</h1>
+          
+
+    <div class="row">
+        <form class="d-flex" role="search" method="POST" action="{% url 'searchGov' %}">
+            {% csrf_token %}
+            
+            <input class="form-control ms-2" type="search" placeholder="Search Government Site" aria-label="Search" name="searched">
+            <button type="submit" class="btn btn-primary" style="background-color: #49a1f4; margin-left: 5px;">Search</button>
+          </form>
+          
+        {% for i in finds %}
+        
+      <div class="col-md-3" style="margin-top: 30px; margin-bottom: 30px;">
+        <div class="card" style="width: 18rem; height: 450px; border: 4px solid black;">
+          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="height: 60px; margin-bottom: 5px; background-color: #49a1f4;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: 600;">{{i.title}}</h5> 
+            <p class="card-text">
+              {{i.about}}
+              
+            </p>
+            <div style="position: absolute; bottom: 0; width: 100%; margin-bottom: 5px;">
+              
+              <a href="{{i.source}}"><button type="button" class="btn btn-danger">Visit Site</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+      
+    </div>
+  </div>
+{% endblock content %}
